@@ -8,7 +8,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Passed</th>
+      <th>Passed?</th>
       <th>Last run at</th>
       <th colspan="3"></th>
     </tr>
@@ -19,7 +19,7 @@
       <tr>
         <td><%= script.name %></td>
         <td><%= script.description %></td>
-        <td><%= script.passed %></td>
+        <td><%= script.passed.to_s.humanize %></td>
         <td><%= script.passed_at %></td>
         <td><%= link_to 'Show', script %></td>
         <td><%= link_to 'Run', script_run_path(script) %></td>

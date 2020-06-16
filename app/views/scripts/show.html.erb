@@ -18,7 +18,7 @@
 
 <p>
   <strong>Passed?:</strong>
-  <%= @script.passed %>
+  <%= @script.passed.to_s.humanize %>
 </p>
 
 <%= link_to 'Edit', edit_script_path(@script) %> |

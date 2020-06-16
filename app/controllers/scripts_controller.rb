@@ -35,6 +35,9 @@ class ScriptsController < ApplicationController
 
     respond_to do |format|
       if @script.save
+        
+        execute_script(@script)
+
         format.html { redirect_to @script, notice: 'Script was successfully created.' }
         format.json { render :show, status: :created, location: @script }
       else
@@ -82,15 +85,17 @@ class ScriptsController < ApplicationController
       params.require(:script).permit(:name, :description, :body)
     end
 
+    # Execute le script de test avec les assertions du script #id
     def execute_script(script)
-      cmd = "rails test test/system/automat_test.rb"
+
+      cmd = "script_id=#{script.id} rails test test/system/automat_test.rb"
       wasGood = system(cmd)
 
-      script.passed = wasGood
+      copy_screenshoot(wasGood)
+
+      script.passed    = wasGood
       script.passed_at = DateTime.now
       script.save
-
-      copy_failures_screenshoot(wasGood)
 
       if wasGood
         flash[:notice] = "OK => Test passed"
@@ -100,7 +105,7 @@ class ScriptsController < ApplicationController
 
     end
 
-    def copy_failures_screenshoot(wasGood)
+    def copy_screenshoot(wasGood)
       path = '/home/philnoug/RailsProjects/tests_monkey/'
       if wasGood
         system("cp #{path}tmp/screenshots/test_assertions_from_database.png #{path}/public/screenshot.png")
