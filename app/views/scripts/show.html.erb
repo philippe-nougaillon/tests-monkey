@@ -11,16 +11,12 @@
   <pre><%= @script.body %></pre>
 </p>
 
-<p>
-  <strong>Passed?:</strong>
-  <%= @script.passed.to_s.humanize %>
-</p>
-
 <%= link_to 'Edit', edit_script_path(@script) %> |
 <%= link_to 'Back', scripts_path %>
 
-<br>
+<br><br>
+  
 <p>
-  <%= image_tag '/screenshot.png', width: 800, class: 'img-thumbnail' %>
+  <%= image_tag "/screenshot_#{@script.id}.png", width: 800, class: 'img-thumbnail' %>
 </p>
 

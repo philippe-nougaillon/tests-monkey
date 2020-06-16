@@ -91,7 +91,7 @@ class ScriptsController < ApplicationController
       cmd = "script_id=#{script.id} rails test test/system/automat_test.rb"
       wasGood = system(cmd)
 
-      copy_screenshoot(wasGood)
+      copy_screenshoot(script.id, wasGood)
 
       script.passed    = wasGood
       script.passed_at = DateTime.now
@@ -105,13 +105,17 @@ class ScriptsController < ApplicationController
 
     end
 
-    def copy_screenshoot(wasGood)
+    def copy_screenshoot(script_id, wasGood)
+
       path = '/home/philnoug/RailsProjects/tests_monkey/'
+      dest = "public/screenshot_#{script_id}.png"
+
       if wasGood
-        system("cp #{path}tmp/screenshots/test_assertions_from_database.png #{path}/public/screenshot.png")
+        system("cp #{ path }tmp/screenshots/test_assertions_from_database.png #{ path + dest }")
       else  
-        system("cp #{path}tmp/screenshots/failures_test_assertions_from_database.png #{path}/public/screenshot.png")
+        system("cp #{ path }tmp/screenshots/failures_test_assertions_from_database.png #{ path + dest }")
       end  
+
     end
 
 end
