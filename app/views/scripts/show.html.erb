@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
 
-<p>
-  <strong>Name:</strong>
+<h3>
   <%= @script.name %>
-</p>
+  <br>
+  <small><i><%= @script.description %></i></small>
+</h3>
 
 <p>
-  <strong>Description:</strong>
-  <%= @script.description %>
-</p>
-
-<p>
-  <strong>Script:</strong>
-  <%= simple_format @script.body %>
+  <pre><%= @script.body %></pre>
 </p>
 
 <p>
@@ -24,7 +19,8 @@
 <%= link_to 'Edit', edit_script_path(@script) %> |
 <%= link_to 'Back', scripts_path %>
 
+<br>
 <p>
-  <%= image_tag('/screenshot.png', width: 700) %>
+  <%= image_tag '/screenshot.png', width: 800, class: 'img-thumbnail' %>
 </p>
 
