@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     get :run
   end
 
+  root 'scripts#index'
+
 end
