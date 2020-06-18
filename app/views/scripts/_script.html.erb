@@ -1,7 +1,13 @@
 <tr>
-    <td><b><%= script.name %></b></td>
+    <td><h4><%= script.name %></h4></td>
     <td><%= script.description %></td>
-    <td><%= script.passed.to_s.humanize %></td>
+    <td class="text-center">
+        <% if script.passed %>
+            <%= fa_icon 'check-circle 2x', class: 'text-success' %>
+        <% else %>
+            <%= fa_icon 'times-circle 2x', class: 'text-danger' %>
+        <% end %>
+    </td>
     <td><%= time_ago_in_words script.passed_at %></td>
     <td><%= link_to image_tag(script.screenshot, width: 100, class: 'img-thumbnail'), script %></td>
     <td>
