@@ -6,7 +6,7 @@ class Script < ApplicationRecord
     validates :name, :body, presence: true
 
     def screenshot
-        "/screenshots/#{self.slug}.png"
+        "/screenshots/#{ self.slug }-#{ self.updated_at.to_i }.png"
     end
 
 private
