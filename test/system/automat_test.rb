@@ -10,6 +10,8 @@ class AutomatTest < ApplicationSystemTestCase
         assertions = results[0]['body']
 
         eval(assertions)
+
+        take_screenshot
     end    
 
 end
