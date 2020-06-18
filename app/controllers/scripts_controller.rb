@@ -5,6 +5,16 @@ class ScriptsController < ApplicationController
   # GET /scripts.json
   def index
     @scripts = Script.all
+
+    unless params[:name].blank?
+      @scripts = @scripts.where('name like ?', "%#{params[:name]}%")
+    end
+    
+    unless params[:passed].blank?
+      @scripts = @scripts.where(passed: params[:passed])
+    end
+
+    @scripts = @scripts.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /scripts/1

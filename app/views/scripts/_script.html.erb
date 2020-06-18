@@ -1,0 +1,15 @@
+<tr>
+    <td><b><%= script.name %></b></td>
+    <td><%= script.description %></td>
+    <td><%= script.passed.to_s.humanize %></td>
+    <td><%= time_ago_in_words script.passed_at %></td>
+    <td></td>
+    <td>
+        <%= link_to script_run_path(script), class: 'btn btn-outline-success btn-sm' do %>
+        <%= fa_icon 'play-circle', text: ' Play' %>
+        <% end %>
+    </td>
+    <td><%= link_to 'Show', script, class: 'btn btn-outline-secondary btn-sm' %></td>
+    <td><%= link_to 'Edit', edit_script_path(script), class: 'btn btn-outline-secondary btn-sm' %></td>
+    <td><%= link_to 'Destroy', script, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-secondary btn-sm' %></td>
+</tr>
