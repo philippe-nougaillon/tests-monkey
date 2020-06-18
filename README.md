@@ -50,4 +50,4 @@ Pour installer l'application, clonez ce répertoire puis lancer les commandes su
 Puis lancer votre navigateur et visitez l'adresse suivante : http://localhost:3000
 
 # Screenshot
-![screenshot](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/screenshot.png)
+![screenshot](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/app_screenshot.png)
