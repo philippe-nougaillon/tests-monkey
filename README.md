@@ -2,9 +2,9 @@
 
 ## Cette application permet de simuler l'activité d'un utilisateur sur un site web.
 
-En utilisant un langage simple à base de verbes tels que 'visit', 'click', 'fill_in', 'sleep', 'take_snapshot', vous allez pouvoir écrire un script de test qui contient une suite d'actions et d'évaluation à faire. 
+En utilisant un langage simple à base de verbes tels que 'visit', 'click', 'fill_in', 'sleep', vous allez pouvoir écrire un script de test qui contient une suite d'actions et d'évaluations à réaliser. 
 
-Si les actions fonctionnent et les évaluations sont positives, le test passe, sinon il échoue. 
+L'application va exécuter ce script pas à pas en simulant les actions d'un utilisateur lambda. Si les actions fonctionnent et si les évaluations sont positives, le test passe.
 
 Une copie d'écran est faite systématiquement en fin de script.
 
@@ -37,20 +37,19 @@ sleep(10)
 assert_selector 'h2', text: 'All Tasks'
 ```
 
-Les instructions des exemples ci-dessus sont issues du système de test de Ruby on Rails. 
-Pour en savoir plus, veuillez consulter la documentation : https://guides.rubyonrails.org/testing.html
+Les instructions sont un échantillon donné pour l'exemple. Elles sont beaucoup plus nombreuses et issues du système de test de Ruby on Rails. Pour en savoir plus, consultez la documentation : https://guides.rubyonrails.org/testing.html
 
 # Installation
 Cette application nécessite Ruby 2.7 et Ruby on Rails 6.0. Pour les installer, veuillez consulter cette page : https://guides.rubyonrails.org/getting_started.html
 
-Le système de tests utilise le navigateur Chrome, qui est donc requis.
+Le système utilise le navigateur Chrome pour exécuter les tests, qui est donc requis.
 
 Pour installer l'application, clonez ce répertoire puis lancez les commandes suivantes :
 
 ```
 ~$ cd tests_monkey
-~/tests_monkey/$ rails db:reset
 ~/tests_monkey/$ bundle install
+~/tests_monkey/$ rails db:reset
 ~/tests_monkey/$ rails s
 ```
 
