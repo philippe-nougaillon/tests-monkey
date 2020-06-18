@@ -24,10 +24,26 @@ class ScriptsController < ApplicationController
 
   def play
     script = Script.friendly.find(params[:script_id])
-    execute_script(script)
+    play_script(script)
 
     redirect_to scripts_url
   end 
+
+  def action
+    return unless params[:ids]
+
+    scripts = Script.where(id: params[:ids].keys)
+
+    case params[:action_name]
+    when "Play"
+      scripts.each do |script|
+        play_script(script)
+      end
+      flash[:notice] = "#{scripts.count} script(s) played"  
+    end
+
+    redirect_to scripts_url
+  end
 
   # GET /scripts/new
   def new
@@ -46,7 +62,7 @@ class ScriptsController < ApplicationController
     respond_to do |format|
       if @script.save
         
-        execute_script(@script)
+        play_script(@script)
 
         format.html { redirect_to @script, notice: 'Script was successfully created.' }
         format.json { render :show, status: :created, location: @script }
@@ -63,7 +79,7 @@ class ScriptsController < ApplicationController
     respond_to do |format|
       if @script.update(script_params)
 
-        execute_script(@script)
+        play_script(@script)
 
         format.html { redirect_to @script }
         format.json { render :show, status: :ok, location: @script }
@@ -96,7 +112,7 @@ class ScriptsController < ApplicationController
     end
 
     # Execute le script de test avec les assertions du script #id
-    def execute_script(script)
+    def play_script(script)
       cmd = "script_id=#{script.id} rails test test/system/automat_test.rb"
       wasGood = system(cmd)
 

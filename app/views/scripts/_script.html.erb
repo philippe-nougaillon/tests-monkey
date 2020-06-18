@@ -1,4 +1,9 @@
 <tr>
+    <td>
+        <span data-action="click->action#click">
+            <%= check_box_tag "[ids][#{script.id}]", 'yes', false, data: {"target": "action.source"}, class: 'btn' %>
+        </span>
+    </td>
     <td><h4><%= script.name %></h4></td>
     <td><%= script.description %></td>
     <td class="text-center">

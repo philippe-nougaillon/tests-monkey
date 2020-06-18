@@ -39,22 +39,33 @@
   <br>
 </div>
 
-<table class="table table-striped table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Passed</th>
-      <th>When</th>
-      <th>Screenshot</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+<div data-controller="action">
+  <%= form_tag action_scripts_path do %>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Passed</th>
+          <th>When</th>
+          <th>Screenshot</th>
+          <th colspan="4"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <%= render @scripts %>
-  </tbody>
-</table>
+      <tbody>
+        <%= render @scripts %>
+      </tbody>
+    </table>
+
+    <%= select_tag :action_name, 
+                        options_for_select(['Play']), 
+                        include_blank: true, 
+                        onchange: 'this.form.submit()', 
+                        data: {"target": "action.selector"} %>
+  <% end %>
+</div>
 
 <div class="page_info">
   <%= page_entries_info @scripts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
