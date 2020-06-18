@@ -56,3 +56,5 @@ end
 gem 'font_awesome5_rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
+gem 'friendly_id', '~> 5.2.4'
+

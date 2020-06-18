@@ -22,8 +22,8 @@ class ScriptsController < ApplicationController
   def show
   end
 
-  def run
-    script = Script.find(params[:script_id])
+  def play
+    script = Script.friendly.find(params[:script_id])
     execute_script(script)
 
     redirect_to scripts_url
@@ -87,7 +87,7 @@ class ScriptsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_script
-      @script = Script.find(params[:id])
+      @script = Script.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
@@ -97,35 +97,31 @@ class ScriptsController < ApplicationController
 
     # Execute le script de test avec les assertions du script #id
     def execute_script(script)
-
       cmd = "script_id=#{script.id} rails test test/system/automat_test.rb"
       wasGood = system(cmd)
-
-      copy_screenshoot(script.id, wasGood)
 
       script.passed    = wasGood
       script.passed_at = DateTime.now
       script.save
 
-      if wasGood
-        flash[:notice] = "OK => Test passed"
-      else
-        flash[:alert] = "KO => Test failed!"
-      end
+      copy_screenshoot(script)
 
+      if script.passed?
+        flash[:notice] = "OK => Test passed successfully"
+      else
+        flash[:alert] = "KO! => Test failure"
+      end
     end
 
-    def copy_screenshoot(script_id, wasGood)
+    def copy_screenshoot(script)
+      path = '/home/philnoug/RailsProjects/tests_monkey'
+      dest = path + '/public' + script.screenshot
 
-      path = '/home/philnoug/RailsProjects/tests_monkey/'
-      dest = "public/screenshot_#{script_id}.png"
-
-      if wasGood
-        system("cp #{ path }tmp/screenshots/test_assertions_from_database.png #{ path + dest }")
+      if script.passed?
+        system("cp #{ path }/tmp/screenshots/test_assertions_from_database.png #{ dest }")
       else  
-        system("cp #{ path }tmp/screenshots/failures_test_assertions_from_database.png #{ path + dest }")
+        system("cp #{ path }/tmp/screenshots/failures_test_assertions_from_database.png #{ dest }")
       end  
-
     end
 
 end

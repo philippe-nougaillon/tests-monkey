@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :scripts do 
-    get :run
+    get :play
   end
 
   root 'scripts#index'
