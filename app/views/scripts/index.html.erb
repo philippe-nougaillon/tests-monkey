@@ -58,7 +58,7 @@
     </table>
 
     <%= select_tag :action_name, 
-                        options_for_select(['Play selected scripts']), 
+                        options_for_select(['Play selected scripts','Play selected scripts in headless mode']), 
                         include_blank: true, 
                         onchange: 'this.form.submit()' %>
   <% end %>

@@ -24,7 +24,7 @@ class ScriptsController < ApplicationController
 
   def play
     script = Script.friendly.find(params[:script_id])
-    play_script(script)
+    play_script(script, false)
 
     redirect_to scripts_url
   end 
@@ -33,10 +33,10 @@ class ScriptsController < ApplicationController
     unless params[:ids].blank?
       scripts = Script.where(id: params[:ids].keys)
 
-      case params[:action_name]
-      when 'Play selected scripts'
+      if params[:action_name][0..20] == 'Play selected scripts'
         scripts.each do |script|
-          play_script(script)
+          headless_mode = (params[:action_name] == 'Play selected scripts in headless mode')
+          play_script(script, headless_mode)
         end
         flash[:notice] = "#{scripts.count} script(s) played"  
       end
@@ -112,8 +112,9 @@ class ScriptsController < ApplicationController
     end
 
     # Execute le script de test avec les assertions du script #id
-    def play_script(script)
-      cmd = "script_id=#{script.id} rails test test/system/automat_test.rb"
+    def play_script(script, headless_mode)
+      
+      cmd = "script_id=#{script.id} headless_mode=#{ headless_mode ? '1': '0' } rails test test/system/automat_test.rb"
       wasGood = system(cmd)
 
       script.passed    = wasGood
