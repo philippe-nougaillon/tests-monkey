@@ -4,9 +4,13 @@
 
 En utilisant un langage simple à base de verbes tels que 'visit', 'click', 'fill_in', 'sleep', vous allez pouvoir écrire un script de test qui contient une suite d'actions et d'évaluations à réaliser. 
 
-L'application va exécuter ce script pas à pas en simulant les actions d'un utilisateur lambda. Si les actions fonctionnent et si les évaluations sont positives, le test passe.
+L'application va exécuter ce script pas à pas en simulant les actions d'un utilisateur lambda. Ces actions sont visibles à l'écran comme si elles étaient faites par vous-même.
+
+Si les actions fonctionnent et si les évaluations sont positives, le test passe.
 
 Une copie d'écran est faite systématiquement en fin de script.
+
+Plusieurs scripts peuvent être lancés en une fois, en mode visible ou invisible (headless mode).
 
 ## Exemple de script
 
