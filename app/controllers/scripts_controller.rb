@@ -62,7 +62,7 @@ class ScriptsController < ApplicationController
     respond_to do |format|
       if @script.save
         
-        play_script(@script)
+        play_script(@script, false)
 
         format.html { redirect_to @script, notice: 'Script was successfully created.' }
         format.json { render :show, status: :created, location: @script }
@@ -79,7 +79,7 @@ class ScriptsController < ApplicationController
     respond_to do |format|
       if @script.update(script_params)
 
-        play_script(@script)
+        play_script(@script, false)
 
         format.html { redirect_to @script }
         format.json { render :show, status: :ok, location: @script }
