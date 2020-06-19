@@ -30,16 +30,16 @@ class ScriptsController < ApplicationController
   end 
 
   def action
-    return unless params[:ids]
+    unless params[:ids].blank?
+      scripts = Script.where(id: params[:ids].keys)
 
-    scripts = Script.where(id: params[:ids].keys)
-
-    case params[:action_name]
-    when "Play"
-      scripts.each do |script|
-        play_script(script)
+      case params[:action_name]
+      when 'Play selected scripts'
+        scripts.each do |script|
+          play_script(script)
+        end
+        flash[:notice] = "#{scripts.count} script(s) played"  
       end
-      flash[:notice] = "#{scripts.count} script(s) played"  
     end
 
     redirect_to scripts_url
