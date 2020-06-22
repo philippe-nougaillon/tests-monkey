@@ -65,4 +65,4 @@ Pour installer ce projet sur votre machine il suffit de clonez ce répertoire pu
 Lancez votre navigateur et visitez l'adresse suivante : http://localhost:3000
 
 # Screenshot
-![screenshot](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture_2020-06-18_13-06-54.png)
+![screenshot](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture2020-06-22_11-17-48.png)
