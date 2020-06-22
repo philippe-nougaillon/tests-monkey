@@ -8,8 +8,17 @@
   <pre><%= @script.body %></pre>
 </p>
 
-<%= link_to 'Edit', edit_script_path(@script) %> |
-<%= link_to 'Back', scripts_path %>
+<div class="btn-group">
+  <%= link_to script_play_path(@script), class: 'btn btn-outline-success btn-sm' do %>
+    <%= fa_icon 'play-circle', text: ' Play' %>
+  <% end %>
+  <%= link_to edit_script_path(@script), class: 'btn btn-outline-secondary btn-sm' do %>
+    <%= fa_icon 'edit', text: ' Edit' %>
+  <% end %>
+  <%= link_to scripts_path, class: 'btn btn-outline-secondary btn-sm' do %>
+    <%= fa_icon 'list-alt', text: ' Back'%>
+  <% end %>
+</div>
 
 <br><br>
   

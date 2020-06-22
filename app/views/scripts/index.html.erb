@@ -45,7 +45,7 @@
           <th><input type="checkbox" data-target="check-all.all"></th>
           <th>Name</th>
           <th>Description</th>
-          <th>Passed</th>
+          <th>Passed?</th>
           <th>When</th>
           <th>Screenshot</th>
           <th colspan="4"></th>
@@ -60,10 +60,12 @@
     <%= select_tag :action_name, 
                         options_for_select(['Play selected scripts','Play selected scripts in headless mode']), 
                         include_blank: true, 
+                        class: 'form-control form-control-sm col-sm-4',
                         onchange: 'this.form.submit()' %>
   <% end %>
 
 </div>
+<br>
 
 <div class="page_info">
   <%= page_entries_info @scripts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>

@@ -2,8 +2,13 @@
     <td>
         <%= check_box_tag "[ids][#{script.id}]", 'yes', false, class: 'btn' %>
     </td>
-    <td><h4><%= script.name %></h4></td>
+    
+    <td>
+        <h4><%= link_to script.name, script %></h4>
+    </td>
+    
     <td><%= script.description %></td>
+    
     <td class="text-center">
         <% if script.passed %>
             <%= fa_icon 'check-circle 2x', class: 'text-success' %>
@@ -11,14 +16,28 @@
             <%= fa_icon 'times-circle 2x', class: 'text-danger' %>
         <% end %>
     </td>
-    <td><%= time_ago_in_words script.passed_at %></td>
-    <td><%= link_to image_tag(script.screenshot, width: 100, class: 'img-thumbnail'), script %></td>
+    
     <td>
-        <%= link_to script_play_path(script), class: 'btn btn-outline-success btn-sm' do %>
-        <%= fa_icon 'play-circle', text: ' Play' %>
-        <% end %>
+        <%= time_ago_in_words script.passed_at %>
     </td>
-    <td><%= link_to 'Show', script, class: 'btn btn-outline-secondary btn-sm' %></td>
-    <td><%= link_to 'Edit', edit_script_path(script), class: 'btn btn-outline-secondary btn-sm' %></td>
-    <td><%= link_to 'Destroy', script, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-secondary btn-sm' %></td>
+    
+    <td class="text-center">
+        <%= link_to image_tag(script.screenshot, width: 75, class: 'img-thumbnail'), script %>
+    </td>
+    
+    <td>
+        <div class="btn-group btn-group-sm">
+            <%= link_to script_play_path(script), class: 'btn btn-outline-success btn-sm' do %>
+                <%= fa_icon 'play-circle', text: ' Play' %>
+            <% end %>
+            <%= link_to script, class: 'btn btn-outline-secondary btn-sm' do %>
+                <%= fa_icon 'eye', text: ' Show' %>
+            <% end %>
+            <%= link_to edit_script_path(script), class: 'btn btn-outline-secondary btn-sm' do %>
+                <%= fa_icon 'edit', text: ' Edit' %>
+            <% end %>
+            <%= link_to script, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-secondary btn-sm' do %>
+                <%= fa_icon 'trash-alt', text: ' Destroy' %>
+            <% end %>
+    </td>
 </tr>
