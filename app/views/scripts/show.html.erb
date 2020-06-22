@@ -1,28 +1,42 @@
-<h3>
-  <%= @script.name %>
-  <br>
-  <small><i><%= @script.description %></i></small>
-</h3>
+<div class="pb-2 mt-4 mb-2 border-bottom">
+
+  <div class="btn-group float-right">
+    <%= link_to script_play_path(@script), class: 'btn btn-outline-success btn-sm' do %>
+      <%= fa_icon 'play-circle', text: ' Play' %>
+    <% end %>
+    <%= link_to edit_script_path(@script), class: 'btn btn-outline-secondary btn-sm' do %>
+      <%= fa_icon 'edit', text: ' Edit' %>
+    <% end %>
+    <%= link_to scripts_path, class: 'btn btn-outline-secondary btn-sm' do %>
+      <%= fa_icon 'list-alt', text: ' Back'%>
+    <% end %>
+  </div>
+
+  <h2>
+    <%= fa_icon 'robot' %>
+    <%= @script.name %>
+    <small><i><%= @script.description %></i></small>
+  </h2>
+
+  <% if @script.passed %>
+    <%= fa_icon 'check-circle', class: 'text-success' %>
+  <% else %>
+    <%= fa_icon 'times-circle', class: 'text-danger' %>
+  <% end %>
+  <%= time_ago_in_words @script.passed_at %>
+
+</div>
 
 <p>
   <pre><%= @script.body %></pre>
 </p>
 
-<div class="btn-group">
-  <%= link_to script_play_path(@script), class: 'btn btn-outline-success btn-sm' do %>
-    <%= fa_icon 'play-circle', text: ' Play' %>
-  <% end %>
-  <%= link_to edit_script_path(@script), class: 'btn btn-outline-secondary btn-sm' do %>
-    <%= fa_icon 'edit', text: ' Edit' %>
-  <% end %>
-  <%= link_to scripts_path, class: 'btn btn-outline-secondary btn-sm' do %>
-    <%= fa_icon 'list-alt', text: ' Back'%>
-  <% end %>
+
+<div class="pb-2 mt-4 mb-2 border-bottom">
+  <h4>Screenshot</h4>  
 </div>
 
-<br><br>
-  
-<p>
+<p class="text-center">
   <%= image_tag @script.screenshot, class: 'img-thumbnail' %>
 </p>
 

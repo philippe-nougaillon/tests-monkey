@@ -65,5 +65,6 @@ Une fois Ruby/Rails/Sqlite installés votre machine il suffit de cloner ce repo 
 Lancez maintenant votre navigateur et visitez l'adresse suivante : http://localhost:3000
 Et voilà :)
 
-# Screenshot
-![screenshot](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture2020-06-22_11-17-48.png)
+# Screenshots
+![screenshot1](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture2020-06-22_11-17-48.png)
+![screenshot2](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture2020-06-22_11-57-59.png)
