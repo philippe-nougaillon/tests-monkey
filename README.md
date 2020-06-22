@@ -1,12 +1,14 @@
 # README
 
-## Cette application permet de simuler l'activité d'un utilisateur sur un site web.
+## Simuler l'activité d'un utilisateur sur un site web
 
-En utilisant un langage simple à base de verbes tels que 'visit', 'click', 'fill_in', 'sleep', vous allez pouvoir écrire un script de test qui contient une suite d'actions et d'évaluations à réaliser. 
+Ce projet est une interface avec le système de test de Ruby on Rails et Capybara.
 
-L'application va exécuter ce script pas à pas en simulant les actions d'un utilisateur lambda. Ces actions sont visibles à l'écran comme si elles étaient faites par vous-même.
+En utilisant un langage simple à base de verbes tels que 'visit', 'click', 'fill_in', 'sleep', vous allez pouvoir écrire un script qui contient une suite d'actions à effectuer sur le site à tester. 
 
-Si les actions fonctionnent et si les évaluations sont positives, le test passe.
+L'application va exécuter ce script pas à pas en simulant les actions d'un utilisateur lambda ou authentifié. Ces actions sont visibles à l'écran comme si elles étaient faites par vous-même.
+
+Si les actions fonctionnent et si les évaluations (assertions) sont positives, le test passe.
 
 Une copie d'écran est faite systématiquement en fin de script.
 
@@ -41,14 +43,17 @@ sleep(10)
 assert_selector 'h2', text: 'All Tasks'
 ```
 
-Les instructions sont un échantillon donné pour l'exemple. Elles sont beaucoup plus nombreuses et issues du système de test de Ruby on Rails. Pour en savoir plus, consultez la documentation : https://guides.rubyonrails.org/testing.html
+Les instructions utilisées ci-dessus ne sont qu'un échantillon des possibilités offertes. Elles sont beaucoup plus nombreuses et issues du système de test éprouvé de Ruby on Rails. 
+
+Pour en savoir plus, consultez la documentation : https://guides.rubyonrails.org/testing.html
 
 # Installation
-Cette application nécessite Ruby 2.7 et Ruby on Rails 6.0. Pour les installer, veuillez consulter cette page : https://guides.rubyonrails.org/getting_started.html
 
-Le système utilise le navigateur Chrome pour exécuter les tests, qui est donc requis.
+Ce projet tourne sous Ruby 2.7/Ruby on Rails 6. Pour les installer, veuillez consulter cette page : https://guides.rubyonrails.org/getting_started.html
 
-Pour installer l'application, clonez ce répertoire puis lancez les commandes suivantes :
+Le navigateur Chrome est utilisé pour exécuter les tests, il est donc aussi requis.
+
+Pour installer ce projet sur votre machine il suffit de clonez ce répertoire puis de lancez les commandes suivantes :
 
 ```
 ~$ cd tests_monkey
@@ -57,7 +62,7 @@ Pour installer l'application, clonez ce répertoire puis lancez les commandes su
 ~/tests_monkey/$ rails s
 ```
 
-Puis lancez votre navigateur et visitez l'adresse suivante : http://localhost:3000
+Lancez votre navigateur et visitez l'adresse suivante : http://localhost:3000
 
 # Screenshot
 ![screenshot](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture_2020-06-18_13-06-54.png)
