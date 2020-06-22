@@ -53,7 +53,7 @@ Ce projet tourne sous Ruby 2.7/Ruby on Rails 6. Pour les installer, veuillez con
 
 Le navigateur Chrome est utilisé pour exécuter les tests, il est donc aussi requis.
 
-Pour installer ce projet sur votre machine il suffit de clonez ce répertoire puis de lancez les commandes suivantes :
+Une fois Ruby/Rails/Sqlite installés votre machine il suffit de cloner ce repo github puis de lancer les commandes suivantes :
 
 ```
 ~$ cd tests_monkey
@@ -62,7 +62,8 @@ Pour installer ce projet sur votre machine il suffit de clonez ce répertoire pu
 ~/tests_monkey/$ rails s
 ```
 
-Lancez votre navigateur et visitez l'adresse suivante : http://localhost:3000
+Lancez maintenant votre navigateur et visitez l'adresse suivante : http://localhost:3000
+Et voilà :)
 
 # Screenshot
 ![screenshot](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture2020-06-22_11-17-48.png)
