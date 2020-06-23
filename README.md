@@ -27,12 +27,12 @@ assert_selector 'span', text: 'Temporairement en rupture de stock.'
 ### Tester si un utilisateur peut se connecter et s'il trouve le bon contexte à son arrivée
 
 ```
-url = 'https://login.veevavault.com/'
+url = 'https://www.login.com/'
 
 visit url
 assert_selector 'span', text: 'Log in'
 
-fill_in 'j_username', with: 'ValidationTest@vv-consulting.com'
+fill_in 'j_username', with: 'ValidationTest@consulting.com'
 click_on 'continue'
 
 fill_in 'j_password', with: 'Password'
@@ -58,7 +58,7 @@ Une fois Ruby/Rails/Sqlite installés votre machine il suffit de cloner ce repo 
 ```
 ~$ cd tests_monkey
 ~/tests_monkey/$ bundle install
-~/tests_monkey/$ rails db:reset
+~/tests_monkey/$ rails db:setup
 ~/tests_monkey/$ rails s
 ```
 
