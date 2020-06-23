@@ -67,4 +67,3 @@ Et voilà :)
 
 # Screenshots
 ![screenshot1](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture2020-06-22_11-17-48.png)
-![screenshot2](https://github.com/philippe-nougaillon/Tests_monkey/blob/master/public/Capture2020-06-22_11-57-59.png)
